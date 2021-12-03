@@ -1,0 +1,56 @@
+﻿body {
+    background-image: linear-gradient(#44c9fe,#44c9fe);
+}
+
+.label {
+    color: black;
+    font-size: 20px;
+    padding: 10px;
+}
+
+#myTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 18px;
+}
+
+    #myTable th, #myTable td {
+        text-align: left;
+        padding: 12px;
+    }
+
+    #myTable tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+        #myTable tr.header {
+            background-color: #064277;
+            color: white;
+        }
+
+        #myTable tr.high {
+            background-color: #307dc2;
+            color: white;
+        }
+
+        #myTable tr.high1 {
+            color: white;
+        }
+
+    #myTable .btn {
+        background-color: #064277;
+        color: white;
+    }
+
+.img {
+    float: left;
+    height: 10%;
+    width: 10%;
+}
+
+.name {
+    margin-left: 200px;
+    font-size: 17px;
+    color: black;
+}

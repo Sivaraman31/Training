@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <title>Profile</title>
+</head>
+<body>
+    <section id="header">
+        <div class="header container">
+            <div class="nav-bar">
+                <div class="brand">
+                    <a href="#home">
+                        <h1><span>S</span>ivaraman <span>C</span></h1>
+                    </a>
+                </div>
+                <div class="nav-list">
+
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#acms">Academic/Skills</a></li>
+                        <li><a href="#profile">Profile Experiance</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="home">
+        <div class="home container">
+            <div>
+                <h1>Hello, <span></span></h1>
+                <h1>My Name is <span></span></h1>
+                <h1>Sivaraman <span></span></h1>
+                <a href="#profile" type="button" class="cta">Profile</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="services container">
+            <div class="service-top">
+                <h1 class="section-title"><span>A</span>bout<span> M</span>e</h1>
+                <div style="text-align: justify; margin-left: 200px;">
+                    <p>
+                        An individual with keen interest in Website Development,<br /> possessing good interpersonal and analytical skills, who
+                        wish to use Technical Knowledge catering to the needs of the company.<br /> I was involved in setting and building up
+                        COVID-19 channels and applications for TamilNadu government, GRC modules for Fintech Companies during
+                        these one and half years.
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <section id="acms">
+        <div class="profile container">
+            <div class="profile-header">
+                <h1 class="section-title">Academic <span>Profile</span></h1>
+                <div style="text-align: justify; margin-left: 0px;">
+                    <p>
+                        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                    </p>
+                </div>
+            </div>
+            
+
+        </div>
+    </section>
+
+
+    <section id="profile">
+        <div class="profile-container" style="margin-left:100px; font-size:30px;">
+            <br /><br /><br /><br /><br /><br />
+            <h1 class="section-title">PROFILE <span>Experiance</span></h1>
+        </div>
+    </section>
+
+    <section class="timeline">
+        <ul>
+            <li>
+                <div>
+                    <time>2010</time>Secondary Finished at St. Joseph's Higher
+                    Secondary School, Cuddalore.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <time>2012</time>Senior Secondary Finished at St. Joseph's Higher
+                    Secondary School, Cuddalore.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <time>2012- 2015</time>BCA (Bachelors in Computer Application) Studied on St.Joseph's College of Arts & Science College.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <time>2015- 2018</time>MCA (Master of Computer Application) Studied on sri Sairam Engineering College.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <time>2018-2019</time>6 Month's PHP & Web Development Training on MSpire Business Solutions, Coimbatore.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <time>2019</time>joined FixNix GRC Solutions, Chennai.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <time>2020</time>Self Learning Time
+                </div>
+            </li>
+            <li>
+                <div>
+                    <time>2021</time>Loading...
+                </div>
+            </li>
+        </ul>
+    </section>
+    <script>
+
+
+
+
+        (function () {
+            "use strict";
+
+            // define variables
+            var items = document.querySelectorAll(".timeline li");
+
+            // check if an element is in viewport
+            function isElementInViewport(el) {
+                var rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <=
+                    (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            function callbackFunc() {
+                for (var i = 0; i < items.length; i++) {
+                    if (isElementInViewport(items[i])) {
+                        items[i].classList.add("in-view");
+                    }
+                }
+            }
+
+            // listen for events
+            window.addEventListener("load", callbackFunc);
+            window.addEventListener("scroll", callbackFunc);
+        })();
+
+    </script>
+</body>
+</html>

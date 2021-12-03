@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Survey</title>
+    <link rel="stylesheet" href="css/survey.css" />
+
+</head>
+<body>
+    <div class="container">
+        <section>
+            <header id="head" style="background-color: #704013;">
+
+                <h1>Survey<span style="font-size:70px; color: deeppink;">OF</span>Memories</h1>
+                <h5>Sivaraman </h5>
+                <hr style="border: 1px solid red" />
+
+                <h1>Fill My<span style="font-size:60px; color: deeppink;">Memory Survey</span>Friends... :)</h1>
+
+                <hr style="border: 1px solid red" />
+            </header>
+        </section>
+
+        <section>
+            <div class="container" style="background-color: #8f6639; font-family:sans-serif">
+                <form action="success.html">
+                    <div class="row">
+                        <div style="text-align:center; width:90%; font-size:24px;">
+                            <label><b>What is my full name?</b></label>
+
+                            <input type="text" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div style="text-align:center; width:90%; font-size:24px;">
+                            <label><b>Where do I come from?</b></label>
+
+                            <input type="text">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div style="text-align:center; width:90%; font-size:24px;">
+                            <label><b>When My Birthday?</b></label>
+
+                            <input type="date" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div style="text-align:center; width:90%; font-size:24px;">
+                            <label for="cname"><b>You Like to Call Me as</b></label>
+
+                            <input type="text" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div style="text-align:center; width:90%; font-size:24px;">
+                            <label><b>What’s my favorite sweet?</b></label>
+
+                            <input type="text">
+                        </div>
+
+                        <div style="text-align:center; width:90%; font-size:24px;">
+                            <label><b>What is my favorite food?</b></label>
+
+                            <input type="text" required>
+                        </div>
+                        <div style="text-align:center; width:90%; font-size:24px;">
+                            <label><b>What is My favorite sport?</b></label>
+
+                            <input type="text" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div style="text-align:center; width:90%; font-size:24px;">
+                            <label><b>My favorite ice cream flavor?</b></label>
+
+                            <input type="text" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div style="text-align:center; width:90%; font-size:24px;">
+                            <label><b>My favorite movie?</b></label>
+
+                            <input type="text" required>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="row">
+                        <button onclick="printFunction()">Print</button>
+                    </div>
+                    <br />
+                </form>
+            </div>
+
+        </section>
+    </div>
+    <script>
+      function printFunction() {
+        window.print();
+      }
+    </script>
+</body>
+</html>

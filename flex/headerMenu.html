@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .flex-container {
+            display: flex;
+            background-color: #f1f1f1;
+            border:1px solid black;
+        }
+
+            .flex-container .grow {
+                min-width:100px;
+                position:relative;
+                background-color: DodgerBlue;
+                color: white;
+                margin: 10px;
+                flex-grow: 2;
+                overflow:hidden;
+                line-height:75PX;
+                white-space:nowrap;
+                font-size: 30px;
+            }
+
+            .flex-container .shrink {
+                background-color: DodgerBlue;
+                color: white;
+                margin: 10px;
+                flex-shrink: 0;
+                text-align: center;
+                line-height: 75px;
+                font-size: 30px;
+            }
+            .flex-container .shrink1 {
+                background-color: DodgerBlue;
+                color: white;
+                margin: 10px;
+                flex-shrink: 0;
+                flex-grow: 1;
+                text-align: center;
+                line-height: 75px;
+                font-size: 30px;
+            }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="flex-container">
+        <div class="grow">Sazsdfgaw</div>
+
+        <div class="shrink1">
+            <i class="fa fa-pencil-square-o" style="font-size:24px"></i>
+            <i class="fa fa-pencil-square-o" style="font-size:24px"></i>
+            <i class="fa fa-pencil-square-o" style="font-size:24px"></i>
+            <i class="fa fa-pencil-square-o" style="font-size:24px"></i>
+            <i class="fa fa-pencil-square-o" style="font-size:24px"></i>
+            <i class="fa fa-pencil-square-o" style="font-size:24px"></i>
+            <i class="fa fa-pencil-square-o" style="font-size:24px">sdfaerdfs</i>
+
+        </div>
+        <div class="shrink">YRdsfadfgsd</div>
+    </div>
+    
+</body>
+</html>
