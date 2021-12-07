@@ -68,7 +68,7 @@ namespace Const
 
             static void ViewContact()
             {
-                Console.WriteLine(FirstName);
+                Console.WriteLine(ContactList);
 
                 Console.ReadKey();
             }
