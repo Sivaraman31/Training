@@ -11,7 +11,7 @@ namespace Example
             Console.WriteLine("Enter the Number: ");
             n = Convert.ToInt32(Console.ReadLine());
             
-            for(i = 2; i <= m; i++)
+            for(i = 2; i <= n; i++)
             {
                 if(m % i == 0)
                 {
