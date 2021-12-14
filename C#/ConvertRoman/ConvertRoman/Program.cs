@@ -8,11 +8,11 @@ namespace ConvertRoman
 {
     class Program
     {
-       
-    public static void Decimal2Roman(int nDigit)
-    {
+
+        public static void Decimal2Roman(int nDigit)
+        {
             int nNum1, nNumber1, nNumber2, nNumber = nDigit;
-            
+
             nNum1 = nNumber % 10;
             nNumber1 = nNumber / 10;
             int nNum10;
@@ -137,7 +137,7 @@ namespace ConvertRoman
         {
             int nDig;
             Console.Write("\n\n Enter The Number: ");
-            if(int.TryParse(Console.ReadLine(), out nDig))
+            if (int.TryParse(Console.ReadLine(), out nDig))
             {
                 if (nDig > 0 && nDig < 5000)
                 {
@@ -152,7 +152,7 @@ namespace ConvertRoman
             {
                 Console.WriteLine("Invalid Input...");
             }
-            
+
             Console.Write("\n");
         }
     }
