@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Data.SqlClient;
+using System.Data;
 
 public class ContactBook
 {
@@ -63,6 +65,8 @@ public class Program
     }
     static void AddContact()
     {
+        int nPhone;
+        string strC_Name, strLocation, strMail;
 
         ContactBook contact = new ContactBook();
 
@@ -85,7 +89,28 @@ public class Program
         Console.WriteLine("Contact Added Successfully...");
         Console.WriteLine("\n");
 
-        DisplayContact();
+        /*using(SqlConnection conn=new SqlConnection("Data Source=.;Database=ContactBookDB;Integrated Security=SSPI"))
+        {
+            conn.Open();
+            SqlCommand cmd;
+            SqlDataAdapter adap = new SqlDataAdapter();
+
+            string sql = "";
+            sql = "Insert Into ContactDB(ContactName,PhoneNumber,Location,Email) Values(@ContactName,@PhoneNumber,@Location,@EMail)";
+            
+            cmd=new SqlCommand(sql, conn)
+            {
+                cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@ContactName", strC_Name);
+            cmd.Parameters.AddWithValue("@PhoneNumber", nPhone);
+            cmd.Parameters.AddWithValue("@Location", strLocation);
+            cmd.Parameters.AddWithValue("@Email", strMail);
+        }
+            adap.InsertCommand = new SqlCommand(sql, conn);
+
+            
+        }*/
+       
     }
 
     static void DisplayContact()
@@ -124,6 +149,7 @@ public class Program
                 break;
             }
         }
+
         if (contactBook != null)
         {
             //Console.WriteLine("\n Searched Contact Will Showen Below.");
@@ -156,6 +182,7 @@ public class Program
                 break;
             }
         }
+
         if (bContactExist)
         {
             Console.WriteLine("\n Choose The Field To Edit... \n");
@@ -212,9 +239,6 @@ public class Program
             Console.WriteLine("No Records found :(");
             Console.WriteLine("\n");
         }
-        
-
-
     }
     static void DeleteContact()
     {
@@ -232,6 +256,7 @@ public class Program
                 break;
             }
         }
+
         if (bContactExist)
         {
             Console.WriteLine("\n Contact Deleted...");
@@ -242,5 +267,7 @@ public class Program
         {
             Console.WriteLine("\n No Records found :(");
         }
-    }    
+    }   
+    
+    
 }
