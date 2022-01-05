@@ -1,0 +1,79 @@
+﻿.adminPageContainer .adminPageBody .adminPageBodyContent {
+    display: flex;
+}
+
+.adminPageBodyContent .ReportPageBodyContentLeft, .adminPageBodyContent .ReportPageBodyContentRight {
+    height: 100%;
+    width: 50%;
+}
+
+.adminPageBodyContent .ReportPageBodyContentLeft .ReportPageBodyContentLeftTop h3 {
+    text-align: center;
+    margin: 10px 0 20px 0;
+}
+.adminPageBodyContent .ReportPageBodyContentLeft .ReportPageBodyContentLeftTop .ReportedBlogNames .BlogName {
+    padding: 5px 0 0 100px;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.ShowAllBlogs {
+    padding:5px;
+    margin-left:200px;
+    border-radius: 5px;
+    background-color:darkgray;
+}
+
+.adminPageBodyContent .ReportPageBodyContentRight {
+    display: flex;
+    flex-direction:column;
+}
+
+.adminPageBodyContent .ReportPageBodyContentRight .ReportPageBodyContentRightTop{    
+    height: 50%;
+    width:100%;    
+}
+
+.adminPageBodyContent .ReportPageBodyContentRight .ReportPageBodyContentRightTop h3 {
+    text-align: center;
+    margin: 10px 0 20px 0;
+}
+
+.adminPageBodyContent .ReportPageBodyContentRight .ReportPageBodyContentRightTop .ReviewBlogNames .BlogName {
+    padding: 5px 0 0 100px;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.adminPageBodyContent .ReportPageBodyContentRight .ReportPageBodyContentRightBottom {
+    height: 50%;
+    width: 100%;
+}
+
+.adminPageBodyContent .ReportPageBodyContentRight .topReportedAuthors .havingHighReports {
+    text-align: center;
+    margin: 10px 0 20px 0;
+}
+
+.adminPageBodyContent .ReportPageBodyContentRight .topReportedAuthors .havingHighReportedProfile {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.authorProfileCard .profileImg img {
+    height: 120px;
+    width: 120px;
+}
+
+.authorProfileCard .profileDescription p:nth-child(1) {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px 0;
+}
+

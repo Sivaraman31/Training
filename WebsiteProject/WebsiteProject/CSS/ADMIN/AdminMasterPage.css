@@ -1,0 +1,127 @@
+﻿* {
+	margin: 0;
+	padding: 0;
+}
+
+.adminPageContainer {
+	display: flex;
+	height: 100vh;
+	width: 100%;
+}
+
+.adminPageContainer .adminPageMenu {
+	height: 100%;
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 3px 0 5px -2px #E5E5E5;
+}
+
+.adminPageContainer .adminPageBody {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 80%;
+}
+
+.adminPageContainer .adminPageMenu .adminPageMenuHeader, .adminPageContainer .adminPageBody .adminPageBodyHeader {
+	height: 8%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #EBEFF2;
+	color: #2BA8D6;
+}
+
+.adminPageContainer .adminPageMenu .adminPageMenuContent, .adminPageContainer .adminPageBody .adminPageBodyContent {
+	height: 92%;
+	width: 100%;
+}
+
+.adminPageContainer .adminPageMenu .adminPageMenuHeader {
+	justify-content: center;
+}
+
+.adminPageContainer .adminPageBody .adminPageBodyHeader {
+	justify-content: space-between;
+}
+
+.adminPageContainer .adminPageBody .adminPageBodyHeader .leftSideHeader {
+	padding-left: 40px;
+}
+
+.adminPageContainer .adminPageBody .adminPageBodyHeader .rightSideHeader {
+	padding-right: 40px;
+}
+
+i {
+	padding-right: 5px;
+	cursor: pointer;
+}
+
+.searchBox input {
+	width: 300px;
+	outline: none;
+	border: none;
+	font-size: 1.1rem;
+	letter-spacing: 0.05rem;
+	border-bottom: 1px solid #2BA8D6;
+	padding: 15px 0 0 0;
+}
+
+.adminPageMenuContent .adminUserProfile, .adminPageMenuContent .adminPageMenuItems, .adminPageMenuContent .adminPageMoreMenuItems {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.adminPageMenuContent .adminUserProfile {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.adminPageMenuContent .adminUserProfile .profilePicture {
+	height: 50px;
+	width: 50px;
+	object-fit: cover;
+}
+
+.adminPageMenuContent .adminUserProfile .profilePicture img {
+	height: 100%;
+	width: 100%;
+	border-radius: 50px;
+}
+
+.adminPageMenuContent .adminUserProfile .profileDetails {
+	width: 75%;
+	margin-left: 15px;
+}
+
+.adminPageMenuContent .adminUserProfile .profileDetails h4 {
+	font-size: 1.2rem;
+}
+
+.adminPageMenuContent .adminUserProfile .profileDetails p {
+	font-size: 1.2rem;
+	color: grey;
+	margin-top: 8px;
+}
+
+.adminPageMenuItems .adminPageMenuItem {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	cursor: pointer;
+	color: black;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.adminPageMenuItems .adminPageMenuItem i {
+	width: 20%;
+	color: #C2CFE0;
+	font-size: 1.2rem;
+}

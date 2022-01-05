@@ -1,0 +1,66 @@
+﻿*{
+border:0;
+  padding:0;
+}
+.column1 {
+    flex: 50%;
+    padding: 10px;
+    background-color: cornflowerblue;
+}
+.column2 {   
+    flex: 50%;
+    padding: 10px;
+    background-color: antiquewhite;
+}
+.content {
+    display: flex;
+}
+.count {
+    display: flex;
+    width:100%;
+}
+.total {
+    flex:50%;    
+    color: red;
+    background-color:blue;
+    font-family: 'Times New Roman';
+}
+
+.active {
+    flex: 50%;
+    color: green;
+    background-color:coral;
+    font-family: 'Times New Roman';
+}
+.T-user{
+    display:flex;
+    height:80vh;
+}
+.rate{
+    text-align:center;
+}
+.user1 {
+    order:1;
+   }
+.user2 {
+    order: 2;
+}
+.user3 {
+    order: 3;
+}
+figure img{
+    height:50%;
+    width:50%;
+}
+
+/*.count{
+    position:fixed;
+}
+
+
+
+
+.chart{
+    text-align:center;
+    background-color:aqua;
+}*/

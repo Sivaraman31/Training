@@ -1,0 +1,37 @@
+﻿.adminPageContainer .adminPageBody .adminPageBodyContent {
+	display: flex;
+}
+
+.adminPageBodyContent .adminPageBodyContentLeft, .adminPageBodyContent .adminPageBodyContentRight {
+	height: 100%;
+	width: 50%;
+}
+
+.adminPageBodyContent .adminPageBodyContentLeft .AuthorsCount {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+}
+
+.adminPageBodyContent .adminPageBodyContentLeft .topRatedAuthors .havingHighFollowersHeading {
+	text-align: center;
+	margin: 10px 0 20px 0;
+}
+
+.adminPageBodyContent .adminPageBodyContentLeft .topRatedAuthors .havingHighFollowersProfile {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.authorProfileCard .profileImg img {
+	height: 120px;
+	width: 120px;
+}
+
+.authorProfileCard .profileDescription p:nth-child(1) {
+	text-align: center;
+	font-size: 1.1rem;
+	font-weight: bold;
+	padding: 10px 0;
+}

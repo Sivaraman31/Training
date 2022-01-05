@@ -64,9 +64,9 @@
     </style>
 </head>
 <body>
-    <form class="form" runat="server">
+    <form class="form" runat="server" autocomplete="off">
          <div>
-             <div class="container">
+             
                  <header><h1>
                      Contact Book</h1></header>
                  <div class="input">
@@ -76,7 +76,7 @@
                  </div>
                  <div class="input">
                      <label>Phone Number</label>
-                     <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                     <asp:TextBox ID="TextBox2" runat="server" TextMode="Number"></asp:TextBox>
                      
                  </div>
                  <div class="input">
@@ -89,20 +89,21 @@
                      <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
                      
                  </div>
-                 <div class="btn">
+                 <div class="btn"> 
                      <asp:Button CssClass="submitButton" Text="Add Contact" runat="server" ID="btnAdd" OnClick="btnAdd_Click" />
                      <asp:Button CssClass="submitButton" Text="Display Contact" runat="server" ID="Button1" OnClick="Button1_Click" />
                     
                  </div>
-             </div>
+             
 
              <div class="container1">
                  <div class="input">
                      <asp:TextBox class="input1" ID="TextBox5" runat="server"></asp:TextBox>
                  </div>
                  <div class="input">
-                     <asp:Button CssClass="submitButton" Text="Search Contact" runat="server" ID="Button2" OnClick="Button2_Click" />
-                     <asp:Button CssClass="submitButton" Text="Delete Contact" runat="server" ID="Button3" OnClick="Button3_Click" />
+                     <asp:Button CssClass="submitButton" Text="Search Contact" runat="server" ID="btnSearch" OnClick="SearchContact_Click" />
+                     <asp:Button CssClass="submitButton" Text="Delete Contact" runat="server" ID="btnDelete" OnClick="DeleteContact_Click" />
+                     <asp:Button CssClass="submitButton" Text="Update" runat="server" ID="btnUpdate" OnClick="Update_Click" />
                  </div>
              </div>
              
@@ -111,14 +112,10 @@
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          <div style="margin-left:29%;">
              
-             <asp:GridView ID="GridView1" runat="server" Height="268px" Width="614px">
+             <asp:GridView ID="ContactGridView" runat="server" Height="268px" Width="614px" OnSelectedIndexChanged="gvContacts_SelectedIndexChanged">
                 <Columns>
-                    <asp:TemplateField HeaderText="">
-                                <ItemTemplate>
-                                    <asp:Button ID="btnEdit" runat="server"  RowEditing="GridView1_RowEditing" RowCancelingEdit="RowCancelingEdit" RowUpdating="GridView1_RowUpdating" Text="Edit"></asp:Button>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            
+                    
+                    <asp:CommandField ShowSelectButton="True"/>
                 </Columns>
              </asp:GridView>
          </div>

@@ -12,13 +12,13 @@ namespace ContactBookDB
 {
     public partial class ContactBook : System.Web.UI.Page
     {
-      
+        int SrNo;
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection("Data Source=.;Initial Catalog=ContactBookDB;Integrated Security=SSPI"))
             {
                 connection.Open();
-                string sql = "insert into ContactDB  values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "')";
+                string sql = "insert into ContactBDB  values('"+SrNo+"','" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "')";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.ExecuteNonQuery();
                 Button1_Click(sender, e);
@@ -31,56 +31,53 @@ namespace ContactBookDB
             TextBox4.Text = string.Empty;
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void SearchContact_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection("Data Source=.;Initial Catalog=ContactBookDB;Integrated Security=SSPI"))
             {
-                SqlCommand cmd = new SqlCommand("select * from ContactDB where PhoneNumber like'" + TextBox5.Text + "%' OR ContactName like'" + TextBox5.Text + "%'", connection);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                if (!object.Equals(ds, null))
-                {
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        GridView1.DataSource = ds.Tables[0];
-                        GridView1.DataBind();
-                    }
-                    else
-                    {
-                        Response.Write("<script>alert('No Record found')</script>");
-                    }
-                }
-                
+                connection.Open();
+                        SqlCommand cmd = new SqlCommand($"select * from ContactBDB where PhoneNumber = {TextBox5.Text}", connection);
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds, "ContactDB");
+                        if (!object.Equals(ds, null))
+                        {
+                            SqlDataReader dataReader = cmd.ExecuteReader();
+                            while (dataReader.Read())
+                            {
+                                TextBox1.Text = dataReader[1].ToString();
+                                TextBox2.Text = dataReader[2].ToString();
+                                TextBox3.Text = dataReader[3].ToString();
+                                TextBox4.Text = dataReader[4].ToString();
+                            }
+                        }
             }
             TextBox5.Text = string.Empty;
         }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection("data source =.; Database =ContactBookDB; Integrated security = SSPI"))
             {
                 connection.Open();
                 SqlCommand command;
-                string sqlQuery = "Select * from ContactDB";
+                string sqlQuery = "Select * from ContactBDB";
                 command = new SqlCommand(sqlQuery, connection);
                 SqlDataReader dataReader = command.ExecuteReader();
 
-                GridView1.DataSource = dataReader;
-                GridView1.DataBind();
+                ContactGridView.DataSource = dataReader;
+                ContactGridView.DataBind();
                 connection.Close();
             }
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
+        protected void DeleteContact_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection("data source =.; Database =ContactBookDB; Integrated security = SSPI"))
             {
                 connection.Open();
                 SqlCommand command;
-                command = new SqlCommand("delete from ContactDB where PhoneNumber like'" + TextBox5.Text + "%' OR ContactName like '" + TextBox5.Text + "%'", connection);
-                command.ExecuteNonQuery();
-                
+                command = new SqlCommand($"delete from ContactBDB where PhoneNumber = {TextBox5.Text}", connection);
+                command.ExecuteNonQuery();                
                 Button1_Click(sender, e);
                 connection.Close();
             }
@@ -89,45 +86,60 @@ namespace ContactBookDB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
-
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        private void BindGrid()
         {
-            GridView1.EditIndex = e.NewEditIndex;
-            DataBind();
-        }
-
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow row = GridView1.Rows[e.RowIndex];
-            int PhoneNumber = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
-            string ContactName = (row.FindControl("ContactName") as TextBox).Text;
-            string Location = (row.FindControl("Location") as TextBox).Text;
-            string Mail = (row.FindControl("EMail") as TextBox).Text;
-            string sql = "UPDATE Customers SET ContactName=@Name, Location=@Location, EMail=@mail WHERE PhoneNumber=@PhoneNumber";
-            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            string constr = "data source =.; Database = ContactBookDB; Integrated security = SSPI";
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand(sql))
+                using (SqlCommand cmd = new SqlCommand("SELECT ContactName, PhoneNumber,Location, EMail, SrNo FROM ContactBDB", con))
                 {
-                    cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
-                    cmd.Parameters.AddWithValue("@Name", ContactName);
-                    cmd.Parameters.AddWithValue("@Location", Location);
-                    cmd.Parameters.AddWithValue("@mail", Mail);
-                    cmd.Connection = con;
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        ContactGridView.DataSource = dt;
+                        ContactGridView.DataBind();
+                    }
                 }
             }
-            GridView1.EditIndex = -1;
-            this.DataBind();
         }
-        protected void RowCancelingEdit(object sender, EventArgs e)
+        protected void gvContacts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridView1.EditIndex = -1;
-            this.DataBind();
+            GridViewRow row = ContactGridView.SelectedRow;
+            ViewState["SrNo"] = row.Cells[1].Text;
+            TextBox1.Text = row.Cells[2].Text;
+            TextBox2.Text = row.Cells[3].Text;
+            TextBox3.Text = row.Cells[4].Text;
+            TextBox4.Text = row.Cells[5].Text;
+        }
+        protected void Update_Click(object sender, EventArgs e)
+        {
+            string constr = "data source =.; Database = ContactBookDB; Integrated security = SSPI";
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
+                
+                string sql = $"UPDATE ContactBDB SET PhoneNumber = {TextBox2.Text}, ContactName = {TextBox1.Text}, Location = {TextBox3.Text}, EMail = {TextBox4.Text} WHERE SrNo = {ViewState["SrNo"]}";
+
+                Response.Write("");
+                SqlCommand cmd = new SqlCommand(sql, con);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    BindGrid();
+                }
+                catch(Exception err)
+                {
+                    Response.Write(err.Message);
+                    Response.Write(ViewState["SrNo"]);
+                }
+                finally
+                {
+                    con.Close();
+                }        
+            }
         }
     }
 }

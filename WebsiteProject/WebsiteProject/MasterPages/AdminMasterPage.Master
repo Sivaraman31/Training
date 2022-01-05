@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMasterPage.master.cs" Inherits="WebsiteProject.MasterPages.AdminMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>ADMIN</title>
+    <link rel="stylesheet" href="../CSS/ADMIN/AdminMasterPage.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="adminPageContainer">
+            <div class="adminPageMenu">
+                <div class="adminPageMenuHeader">
+                    <h2>Web Blog</h2>
+                </div>
+                <div class="adminPageMenuContent">
+                    <div class="adminUserProfile">
+                        <div class="profilePicture">
+                            <img src="../Images/admin.jpg">
+                        </div>
+                        <div class="profileDetails">
+                            <h4>My Admin</h4>
+                            <p>admin@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="adminPageMenuItems">
+                         <asp:LinkButton runat="server" Text="<i class='fa fa-dashboard'></i>   DASHBOARD" CssClass="adminPageMenuItem" PostBackUrl="/Admin/Dashboard" />
+                         <asp:LinkButton runat="server" Text="<i class='fa fa-puzzle-piece'></i>   DAILY PUZZLES" CssClass="adminPageMenuItem" PostBackUrl="/Admin/DailyPuzzles" />
+                         <asp:LinkButton runat="server" Text="<i class='fa fa-cubes'></i>   BLOG" CssClass="adminPageMenuItem" PostBackUrl="/Admin/AdminBlog" />
+                         <asp:LinkButton runat="server" Text="<i class='fa fa-user'></i>   USER STATISTICS" CssClass="adminPageMenuItem" PostBackUrl="/Admin/UserStatistics" />
+                         <asp:LinkButton runat="server" Text="<i class='fa fa-flag'></i>   REPORT" CssClass="adminPageMenuItem" PostBackUrl="/Admin/Report1" />
+                    </div>
+                    <hr />
+                    <div class="adminPageMoreMenuItems">
+                    </div>
+                </div>
+            </div>
+            <div class="adminPageBody">
+                <div class="adminPageBodyHeader">
+                    <div class="leftSideHeader">
+                        <div class="searchBox">
+                            <i class="fa fa-search"></i>
+                            <input type="text" name="search" />
+                            <i class="fa fa-close"></i>
+                        </div>
+                    </div>
+                    <div class="rightSideHeader">
+                        <i class="fa fa-bell"></i>
+                    </div>
+                </div>
+                <div class="adminPageBodyContent">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/javascript" src="../JS/AdminMasterPage.js"></script>
+</body>
+</html>
