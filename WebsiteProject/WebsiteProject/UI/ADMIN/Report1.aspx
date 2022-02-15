@@ -27,39 +27,6 @@
                 <p class="BlogName">Review Blog Five</p>
                 <asp:Button Text="Shows" CssClass="ShowAllBlogs" runat="server" />
             </div>
-         </div>
-         <div class="ReportPageBodyContentRightBottom">
-             <div class="topReportedAuthors">
-                <div class="havingHighReports">
-                    <h3>Authors Having High Report Count</h3>
-                </div>
-                <div class="havingHighReportedProfile">
-                    <div class="authorProfileCard">
-                        <div class="profileImg">
-                            <img src="../../Images/emp.png">
-                        </div>
-                        <div class="profileDescription">
-                            <p>Author Name</p>
-                        </div>
-                    </div>
-                    <div class="authorProfileCard">
-                        <div class="profileImg">
-                            <img src="../../Images/emp.png">
-                        </div>
-                        <div class="profileDescription">
-                            <p>Author Name</p>
-                        </div>
-                    </div>
-                    <div class="authorProfileCard">
-                        <div class="profileImg">
-                            <img src="../../Images/emp.png">
-                        </div>
-                        <div class="profileDescription">
-                            <p>Author Name</p>
-                        </div>
-                    </div>
-                </div>
-        </div>
-         </div>
+         </div>         
      </div>
 </asp:Content>
